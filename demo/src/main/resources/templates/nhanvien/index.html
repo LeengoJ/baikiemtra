@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+
+      xmlns:custom="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+  <meta charset="UTF-8">
+  <title>List product</title>
+</head>
+<body>
+<th:block th:replace="layout1"></th:block>
+<div class="container body-content" layout:fragment="content">
+  <a th:href ="@{create}" class="btn btn-primary">Create new products</a>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">tenNv</th>
+      <th scope="col">phai</th>
+      <th scope="col">noisinh</th>
+      <th scope="col">phongban</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="nhanvien: ${listnhanvien}">
+      <th scope="row" th:text="${nhanvien.id}"> </th>
+      <td th:text="${nhanvien.tenNv}"></td> <td>
+      <img height="120" width="150" th:src="@{/images/} + ${nhanvien.phai == 'NAM' ? 'nam.jpg' : 'nu.jpg'}"/>
+    </td>
+      <td th:text="${nhanvien.noisinh}"></td>
+
+      <td th:text="${nhanvien.phongban.tenphong}"></td>
+      <td th:text="${nhanvien.luong}"></td>
+      <td>
+                       <a class="btn btn-danger" custom:linkMethod="post"
+                          th:href="@{/nhanvien/delete/{id}(id=${nhanvien.id})}">Delete</a>
+                       <a class="btn btn-danger" custom:linkMethod="post"
+                          th:href="@{/nhanvien/edit/{id}(id=${nhanvien.id})}">edit</a>
+      </td>
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

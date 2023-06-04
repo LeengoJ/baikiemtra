@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Create New Product</title>
+</head>
+<body>
+<div align="center">
+  <h1>Create New Product</h1>
+  <br />
+  <form action="#" th:action="@{/nhanvien/save}" th:object="${nhanvien}"
+        method="post">
+
+    <table border="0" cellpadding="10">
+      <tr>
+        <td>Ma Nhan Vien:</td>
+        <td><input type="text" th:field="*{id}"/></td>
+      </tr>
+      <tr>
+        <td>Ten Nhan Vien:</td>
+        <td><input type="text" th:field="*{tenNv}" /></td>
+      </tr>
+      <tr>
+        <td>Phai:</td>
+        <td><input type="text" th:field="*{phai}" /></td>
+      </tr>
+      <tr>
+        <td>Noi Sinh:</td>
+        <td><input type="text" th:field="*{noisinh}" /></td>
+      </tr>
+      <tr>
+        <td>Luong:</td>
+        <td><input type="text" th:field="*{luong}" /></td>
+      </tr>
+      <tr>
+        <td>Phong ban:</td>
+        <td><input type="text" th:field="*{phongban.maphong}" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="submit">Save</button> </td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>
